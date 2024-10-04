@@ -36,13 +36,13 @@ pares = {
 
 -- function : são as funções
 
-function soma(a,b)
-    return a+b
-end
+-- function soma(a,b)
+--     return a+b
+-- end
 
-s = soma
+-- s = soma
 
-print(soma(1,2))
+-- print(soma(1,2))
 
 
 -- thread 
@@ -51,3 +51,7 @@ print(soma(1,2))
 -- mas é sempre uma por vez. Não há paralelismo real em lua
 
 -- userdata: tipos customizados definidos pelo usuário (em C)
+
+
+var1 = 0 or 990 or {}
+print(var1)
