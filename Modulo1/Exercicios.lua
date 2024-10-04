@@ -1,6 +1,14 @@
-print("Type the number in meters :")
-local numberMeter = tonumber(io.read())
+print([[
+-----------------------------------------
+---------Calculadora de Areas------------
+-----------------------------------------
+- Digite a altura em seguida a largura: (na mesmas unidades)
+]])
 
-local numberCentimeter = numberMeter * 100
+local alt = tonumber(io.read())
+local lar = tonumber(io.read())
 
-print("You have typed "..numberMeter.."m which is equivalente to "..numberCentimeter.."cm")
+print("-------------------------------")
+print("A area do quadrado é: "..alt*lar)
+print("O dobro da area é: "..(alt*lar)*2)
+print("-------------------------------")
