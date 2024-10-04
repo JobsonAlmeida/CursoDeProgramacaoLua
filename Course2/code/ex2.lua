@@ -1,8 +1,3 @@
-print(2+3)
-
-a = 2 + 3
-
-print("O resultado é "..tostring(a))
 
 -- nil = not in list
 
@@ -45,4 +40,14 @@ function soma(a,b)
     return a+b
 end
 
+s = soma
+
 print(soma(1,2))
+
+
+-- thread 
+
+-- lua é single thread sempre. Então esse tipo thread designa uma co-rotina que eu posso especificar e trabalhar em paraleo 
+-- mas é sempre uma por vez. Não há paralelismo real em lua
+
+-- userdata: tipos customizados definidos pelo usuário (em C)
