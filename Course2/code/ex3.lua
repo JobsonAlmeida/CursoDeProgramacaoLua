@@ -31,3 +31,22 @@ print(s3)
 print(#s3)
 print(s1.len(s3))
 print(s3.len(s3))
+
+-- Exemplo estrutura de sequência 
+
+print([[--- x^2 -5x + 6 = 0 ---]])
+-- x^2 -5x + 6 = 0
+a =1
+b = -2
+c = 1
+
+delta = b^2 -4*a*c
+x1 = (-b-math.sqrt(delta))/(2*a)
+x2 = (-b+math.sqrt(delta))/(2*a)
+
+print(x1)
+print(x2)
+
+
+
+
