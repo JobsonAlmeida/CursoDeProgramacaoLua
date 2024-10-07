@@ -30,3 +30,7 @@ print("!"..string.sub(s3, 10, 17).."!")
 
 print(string.upper(s3))
 print(string.lower(s3))
+
+
+s2 = 'abacate'
+print(string.match(s2, "(%a)(a%a)", 3))
