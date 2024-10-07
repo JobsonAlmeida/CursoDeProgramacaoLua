@@ -79,12 +79,12 @@
 
 
 nomeArquivoMoedas = "moedas.csv"
-arqMoedas= io.open(nomeArquivoMoedas)
+arqMoedas= io.open(nomeArquivoMoedas, "r")
 conteudo = arqMoedas:read("*a")
+arqMoedas:close() -- Fechar o arquivo após leitura
 
 posQuebra, fimQuebra = string.find(conteudo, "\n")
 cabecalho = string.sub(conteudo, 1, posQuebra-1)
-
 
 resultado = ""
 
@@ -94,7 +94,7 @@ while posQuebra ~= nil do
     local fimLinha = posQuebra - 1
     linha = string.sub(conteudo, iniLinha, fimLinha)
 
-    local nomeMoeda, simbolo, pais, primeiraLetra = string.match(linha, ";(.-) *;(.-) *;%d-;((%a).-) *;")
+    local nomeMoeda, simbolo, pais, primeiraLetra = string.match(linha, ";(.-)%s*;(.-)%s*;%d+;([^;]-)%s*;(%a)")
 
     if nomeMoeda == nil then
         break
@@ -113,5 +113,6 @@ end
 nomeArquivoResultado = string.gsub(nomeArquivoMoedas, "(%w+)%.(%w+)$", "_%1_.%2.txt")
 arqResultado = io.open(nomeArquivoResultado, "w")
 arqResultado:write(resultado)
+arqResultado:close()
 
 
