@@ -6,7 +6,7 @@ arq = io.open("teste.txt", "r")
 conteudo = arq:read(10)
 print("!"..conteudo.."!")
 
-arq:close()
+arq.close(arq)
 
 arqSaida = io.open("testeSaida.txt", "w")
 arqSaida:write("!"..conteudo.."!")
