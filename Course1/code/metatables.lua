@@ -1,10 +1,10 @@
 function ex1()
     a = {}
-    meta ={}
-    result = setmetatable(a, meta)
+    Pair ={}
+    result = setmetatable(a, Pair)
     -- result = setmetatable({}, meta) -- a função setmetatable retorna a própria tabela original para a criação da metatable. Isso pode ser útil em algumas situaçãoes em que não temoas a tabela original de antemão e definimos essa tabela na própria função setmetatable.   
     print(result == a)
-    print(getmetatable(a) == meta)
+    print(getmetatable(a) == Pair)
 end
 
 -- ex1()
@@ -25,12 +25,12 @@ a = {
 }
 -- print(a)
 
-meta = {
+Pair = {
     __tostring = function(self)
         return self.name
     end
 }
-setmetatable(a, meta)
+setmetatable(a, Pair)
 -- print(a)
 
 _f = string.format
@@ -116,7 +116,7 @@ minhaTabela =
 
 }
 
-meta ={
+Pair ={
     __newindex = function (self, key, value)
         print(_f('__newindex: Tentando atribuir "%s" ao campo "%s"', value, key))
         rawset(self, key, value) -- rawset sets the value into the table whithout invoking the __newindex metamethod. 
@@ -142,7 +142,7 @@ meta ={
 -- print(string.format == getmetatable("").__index.format)
 
 function ex_str()
-    
+
     s = "a,b"
 
     -- como o metodo __index de string utiliza a mesma tabela que string, então temos

@@ -9,13 +9,13 @@ Pair =
     end,
 }
 
-function Pair.create (x, y)
-    return {
-        x = x,
-        y = y,
-        sum = Pair.sum
-    }  
-end
+-- function Pair.create (x, y)
+--     return {
+--         x = x,
+--         y = y,
+--         sum = Pair.sum
+--     }  
+-- end
 
 p1 = Pair.create(1,2)
 p2 = Pair.create(10,20)
