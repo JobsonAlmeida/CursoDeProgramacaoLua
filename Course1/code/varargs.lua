@@ -6,8 +6,13 @@ end
 
 
 function soma(...)
+    local args = {...}
     local res = 0
-    for _, v in ipairs({...}) do 
+
+    if type(args[1]) == 'table' then
+        args = args[1]
+    end
+    for _, v in ipairs(args) do 
         res = res + v
     end
     return res
@@ -58,8 +63,25 @@ end
 
 function ex4()
     local t = {1,2,3,4,5}
-    local s = soma(unpack(t))
+    local s = soma(1,2,3,4,5)
+    print(s)
+    local s = soma(t)
     print(s)
 end
 
 ex4()
+
+function ex5()
+
+    function fn(...)
+        local n = #{...}
+        print(n)
+    end
+
+    fn(1)
+    fn(1,10)
+    fn(1,10,100)
+
+end
+
+-- ex5()
