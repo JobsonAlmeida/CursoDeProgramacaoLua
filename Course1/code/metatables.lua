@@ -71,6 +71,32 @@ function ex_index()
                          -- poderoso temos que passar a função. Podemos passar qualquer tabela para o método
                          -- __index. As tabelas mais comuns são nomeadas de defaults e de meta. 
 
+
+    ----------------------------------------------
+
+    -- Ordem do que acontece quando procuramos uma propriedade que não existe em uma tabela 
+    -- Eu tenho uma tabela A
+    -- Eu tenho uma metatable meta associada à tabela original A
+    -- É na metatable que eu coloco o metamétdo __index
+    -- Eu posso ter uma outra tabela por exemplo chamada defaults que contem as propriedades que a tabela A
+       -- originalmente não possui
+    -- O metamétodo __index da tabela metatable meta recebe uma função que por sua vez retorna a tabela defaults
+      -- procurando pela propriedade desejada
+
+      meta.__index = function(t, key)  -- O interpretador do lua passa automaticamente a tabela orignal no 
+        return defaults[key]           -- primeiro parâmetro que chamamos de t e a chave alvo da busca no 
+      end                              -- segundo parâmetro que chamamos de key 
+    
+    -- Ou seja, quando a propridade key não é encontrada na tabela original A, o interpretador vai executar a
+    -- função __index que está presente na metatable associada à tabela original A. Podemos fazer qualquer coisa
+    -- nessa função, mas o mais comum é fazer com que essa função retorne a procura da chave key que queremos
+    -- em uma outra tabela por exemplo uma tabela chamada defaults 
+
+    -- Como nós queremos apenas que a função associada ao métametodo __index retone a procura em uma outra 
+    -- tabela, existe um atalho para reescrever toda a função escrevendo apenas o nome da tabela. Esse é o atalho 
+    -- meta.__index = defaults
+    -- é muito comum a própria metatable ser a tabela que possui os por isso o atalho fica meta.__index = meta  
+
     local a = setmetatable({name = "Meu nome"}, meta)
     print(a.name)
     print(a.age) -- prints nil
