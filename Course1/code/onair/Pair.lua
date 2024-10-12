@@ -1,6 +1,9 @@
 require "oop"
 
-Pair = class()
+-- Pair = class()
+
+class "Pair" -- é o mesmo que class("Pair"), porém as duplas aspas já funcionam como delimitadores por isso não
+             -- precisamos usar os parênteses. 
 
 Pair.n = 0 
 

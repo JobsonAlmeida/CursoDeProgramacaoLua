@@ -25,4 +25,10 @@ function exPlayer()
     print(player2)
 end
 
-exPair()
+require "Point"
+function exPoint()
+    local p = Point(3,4) 
+    print(p:abs())
+end
+
+exPoint()
